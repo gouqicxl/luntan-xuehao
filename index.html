@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学号查询</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #result {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+<h2>输入你的学号查询默认账号密码</h2>
+<h2>注意：是默认账号，自己改了名 改了密码是没用的</h2>
+<input type="text" id="studentID" placeholder="学号">
+<button onclick="displayAccount()">确定</button>
+<div id="result"></div>
+
+<script>
+function displayAccount() {
+    var studentID = document.getElementById("studentID").value;
+    var resultDiv = document.getElementById("result");
+var accountPasswordMap = {
+    "1": {account: "750efc151a3e4b628893cb37c3f483c6", password: "1xVj5ZGu"},
+    "2": {account: "f7ef34bddb2c45a2b88f82b0e88a7813", password: "Gp3m7yRI"},
+    "3": {account: "10ce92a2c74f4428a85e15f8e3028967", password: "V7vT2sAh"},
+    "4": {account: "8fd2d1ad203a4e7ba5eb0dcbd103aa21", password: "wXG42Dif"},
+    "5": {account: "17837f22b4b8489487e811415d9de61b", password: "gASx5Zv6"},
+    "6": {account: "230b58d017ac44be915a7920bd3c3356", password: "K6xUQv9j"},
+    "7": {account: "1e7f099c1dd54b1e8093a33fb77c4b08", password: "Dk5v6FHf"},
+    "8": {account: "92bec64a575e434c98a440726efef4a5", password: "kQ6N4jrB"},
+    "9": {account: "fa0d1c3c1b204fa8933ecb67314d74a5", password: "D52drZkU"},
+    "10": {account: "925f7e426ff54fb2ac81b2df55824013", password: "Q1HW2lxf"},
+    "11": {account: "18c5370a8c4b43559004c8203006b458", password: "BHf5Zxv8"},
+    "12": {account: "572a649d22254ce3a9844ac52a4f8e6c", password: "Z6fz9cEM"},
+    "13": {account: "8f85555c5f134c7895fe40f8ac55daab", password: "4M2tavIA"},
+    "14": {account: "0951c075d5624eb6a1d6fcd98221836b", password: "t2wVZF5i"},
+    "15": {account: "ceabaeee3dfe43dd813eab5a5d5025ae", password: "9cl0GqWL"},
+    "16": {account: "723560e0191142c0868c30d2964cbcae", password: "tPHC95vq"},
+    "17": {account: "31674179b0914275b56602b831229569", password: "n9hkX2GI"},
+    "18": {account: "2910c1b687e649d7bd3abccc6cf35ae5", password: "3kM5BZxe"},
+    "19": {account: "82a7d4c1ed5b44f681925afa787c55ff", password: "5oxYF1pR"},
+    "20": {account: "42e08bb4e5424465b3fd6178d9444b26", password: "6ZcC0opD"},
+    "21": {account: "a91a0fe2399b4b66845b94771ddfb83e", password: "noWQx16J"},
+    "22": {account: "13182e31396b4c00aa8a303e91a8fc8a", password: "nLm4jD6S"},
+    "23": {account: "c55025310bf94c2fb42b9fbb8c960c17", password: "aC78HqPo"},
+    "24": {account: "e0e00530bcad47c2838492a1811008b4", password: "6kEPjs1H"},
+    "25": {account: "3adc73daf1b944dc9a02d7c972450680", password: "6XIrgvC2"},
+    "26": {account: "9d54874d9d434b3aac2f149223e12dcb", password: "i15zfITU"},
+    "27": {account: "5535c72f134340869073225dcf23aae6", password: "UwczE23M"},
+    "28": {account: "d247b73bfe164857bba297bac8667905", password: "w73pOAPt"},
+    "29": {account: "b40ad82e65a84e01b0dba397d5ec357a", password: "nq4K6YCp"},
+    "30": {account: "bf58367a239141228de0d452c618703d", password: "I7cvW3tS"},
+    "31": {account: "be1562cb4f3c4b77968f0989c5aa3b8f", password: "dIo0h2BT"},
+    "32": {account: "95e9c667de3f4b6794abaed344d6cc1d", password: "1NTy4dBi"},
+    "33": {account: "f3222cb10a864b098a89b164371141b5", password: "Rb9vDj4V"},
+    "34": {account: "3c803446dc134b36b4b00b9153a9b62d", password: "BbrtI5C9"},
+    "35": {account: "8f68bbdb983d4757b711be6c44218fab", password: "Oc4fJL8p"},
+    "36": {account: "86c9c3f6e9a2440bb41600282deb5f97", password: "6r3SGbvJ"},
+    "37": {account: "0b5874381f3545fbb9355f25685316ea", password: "cwo98KTE"},
+    "38": {account: "ad323f16ecd1406fb4498858d54b4300", password: "WOwkU62f"},
+    "39": {account: "55bbce01a7b940dba5fbc59ae84b048d", password: "Uv2GXy5u"},
+    "40": {account: "7f535960693a4a5f983e11277c237b4e", password: "zJ86auXA"},
+    "41": {account: "f48fd0d949bb4e31b4825a7460078e01", password: "PL2Ekpx8"},
+    "42": {account: "721c3299a6784dd6929d59467875fffa", password: "g0Ej6HxP"},
+    "43": {account: "f3cfdcec2521440095447a34ab61cf5c", password: "2sb5eQSN"},
+    "44": {account: "bcf7837c2ba4446aa2c539a31ceda8b2", password: "H7n8svOG"},
+    "45": {account: "d498f1aac72743d088b03b47098407a9", password: "e24HTNgd"},
+    "46": {account: "18787c92b17543f0862c389c605d54a1", password: "fl8jV5BT"},
+    "47": {account: "ceaaeb2bdca44db5b7cc71ae7a548bf9", password: "LPoIt6e4"},
+    "48": {account: "056ebfafd28a40b68f2d49cfc5161bb3", password: "kzSNa95E"},
+    "49": {account: "ac81c8a7af074a2eafbf9f78aa435d47", password: "MnA30Ucw"},
+    "50": {account: "f5cb2f3eb9a74913bd441619caadb7c4", password: "Ue54XuYi"},
+    "51": {account: "309494e14c184cce9a91186901d19c56", password: "RPx4p2Ie"},
+    "52": {account: "d76c4c5692014a62914d0242ad3e23d0", password: "Rz0B8eaK"},
+    "53": {account: "18787c92b17543f0862c389c605d54a1", password: "Ymfo32OQ"},
+    "54": {account: "ceaaeb2bdca44db5b7cc71ae7a548bf9", password: "Mup8G5nT"},
+    "55": {account: "f84b09587f264265935eaf988917df63", password: "8eRE7wsU"},
+    "56": {account: "1f384393d2ac4c5cbd77562ad9b6e352", password: "KeWVi03z"}
+};
+
+    if (accountPasswordMap.hasOwnProperty(studentID)) {
+        var accountInfo = accountPasswordMap[studentID];
+        resultDiv.innerHTML = "你的默认账号是  " + "'" +accountInfo.account + "'" + "  ，默认密码是  " + accountInfo.password;
+    } else {
+        resultDiv.innerHTML = "找不到学号对应的账号，请输入1~56号";
+    }
+}
+</script>
+</body>
+</html>
